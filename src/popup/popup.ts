@@ -1,7 +1,8 @@
+import browser from "webextension-polyfill";
 const openBtn = document.getElementById("open") as HTMLButtonElement;
 
 openBtn.onclick = () => {
-  chrome.tabs.create({
-    url: chrome.runtime.getURL("dist/sidebar.html")
+  browser.tabs.create({
+    url: browser.runtime.getURL("dist/sidebar.html")
   });
 };

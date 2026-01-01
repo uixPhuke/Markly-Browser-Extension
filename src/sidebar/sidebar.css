@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #020617;
+  color: #fff;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.text {
+  color: #fde047;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: white;
+  padding: 8px;
+}

@@ -1,15 +1,13 @@
-import { Highlight } from "../types/highlight";
+import browser from "../utils/browser.js";
+import { Highlight } from "../types/highlight.js";
 
-document.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", async () => {
   const selection = window.getSelection();
   if (!selection || selection.toString().trim() === "") return;
 
   const range = selection.getRangeAt(0);
   const mark = document.createElement("mark");
-
   mark.style.backgroundColor = "#fde047";
-  mark.style.padding = "2px";
-  mark.style.borderRadius = "4px";
 
   range.surroundContents(mark);
 
@@ -21,9 +19,11 @@ document.addEventListener("mouseup", () => {
     note: ""
   };
 
-  chrome.storage.local.get({ highlights: [] }, (res) => {
-    const updated = [...res.highlights, highlight];
-    chrome.storage.local.set({ highlights: updated });
+  const result = await browser.storage.local.get("highlights");
+  const highlights = result.highlights ?? [];
+
+  await browser.storage.local.set({
+    highlights: [...highlights, highlight]
   });
 
   selection.removeAllRanges();

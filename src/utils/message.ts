@@ -1,0 +1,3 @@
+export const MESSAGE_TYPES = {
+  SCROLL_TO_HIGHLIGHT: "SCROLL_TO_HIGHLIGHT"
+} as const;
