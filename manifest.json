@@ -1,30 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Markly",
-  "version": "1.0.0",
-  "description": "Smart Web Highlighter & Notes",
-  "permissions": ["storage", "activeTab"],
+  "version": "1.0",
+  "description": "Text highlighter",
+  "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
-
-  "background": {
-    "service_worker": "dist/background/background.js",
-    "type": "module"
-  },
-
-  "action": {
-    "default_popup": "src/popup/popup.html"
-  },
-
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["dist/content/highlight.js"]
+      "js": ["highlight.js"]
     }
-  ],
-
-  "icons": {
-    "16": "public/icons/icon16.png",
-    "48": "public/icons/icon48.png",
-    "128": "public/icons/icon128.png"
-  }
+  ]
 }
