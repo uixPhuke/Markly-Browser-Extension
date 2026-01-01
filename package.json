@@ -8,8 +8,9 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "@types/firefox-webext-browser": "^120.0.0"
+    "@types/chrome": "^0.1.32",
+    "@types/firefox-webext-browser": "^120.0.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "webextension-polyfill": "^0.10.0"

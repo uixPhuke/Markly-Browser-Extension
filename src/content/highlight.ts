@@ -19,12 +19,16 @@ document.addEventListener("mouseup", async () => {
     note: ""
   };
 
-  const result = await browser.storage.local.get("highlights");
-  const highlights = result.highlights ?? [];
+  const result = (await browser.storage.local.get("highlights")) as {
+  highlights?: Highlight[];
+};
 
-  await browser.storage.local.set({
-    highlights: [...highlights, highlight]
-  });
+const highlights: Highlight[] = result.highlights ?? [];
+
+await browser.storage.local.set({
+  highlights: [...highlights, highlight]
+});
+
 
   selection.removeAllRanges();
 });

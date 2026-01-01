@@ -1,4 +1,5 @@
-import browser from "webextension-polyfill";
+import browser from "../utils/browser.js";
+
 const openBtn = document.getElementById("open") as HTMLButtonElement;
 
 openBtn.onclick = () => {

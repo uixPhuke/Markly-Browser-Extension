@@ -1,22 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "Markly – Web Highlighter & Notes",
+  "name": "Markly",
   "version": "1.0.0",
-  "description": "Highlight text on any website and save it with notes.",
+  "description": "Smart Web Highlighter & Notes",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["<all_urls>"],
+
   "background": {
-    "service_worker": "dist/background.js"
+    "service_worker": "dist/background/background.js",
+    "type": "module"
   },
+
   "action": {
-    "default_popup": "dist/popup.html"
+    "default_popup": "src/popup/popup.html"
   },
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["dist/highlight.js"]
+      "js": ["dist/content/highlight.js"]
     }
   ],
+
   "icons": {
     "16": "public/icons/icon16.png",
     "48": "public/icons/icon48.png",

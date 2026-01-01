@@ -5,8 +5,12 @@ import { Highlight } from "../types/highlight.js";
 const KEY = "highlights";
 
 export async function getHighlights(): Promise<Highlight[]> {
-  const result = await browser.storage.local.get(KEY);
-  return result[KEY] || [];
+  const result = (await browser.storage.local.get(KEY)) as {
+  [KEY]: Highlight[];
+};
+
+return result[KEY] ?? [];
+
 }
 
 export async function saveHighlight(highlight: Highlight) {
