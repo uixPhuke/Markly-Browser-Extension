@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #020617;
+  color: #fff;
+}
+
+#app {
+  padding: 16px;
+  text-align: center;
+}
+
+button {
+  margin-top: 12px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: #22c55e;
+  font-weight: 600;
+  cursor: pointer;
+}
