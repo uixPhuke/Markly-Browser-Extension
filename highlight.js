@@ -1,15 +1,17 @@
-alert("Markly is running");
+async function restoreHighlights() {
+  const result = await chrome.storage.local.get("highlights");
+  const highlights = result.highlights || [];
 
-document.addEventListener("mouseup", () => {
-  const sel = window.getSelection();
-  if (!sel || sel.isCollapsed) return;
-
-  const range = sel.getRangeAt(0);
-  const mark = document.createElement("mark");
-  mark.style.background = "yellow";
-
-  try {
-    range.surroundContents(mark);
-    sel.removeAllRanges();
-  } catch {}
-});
+  highlights
+    .filter(h => h.url === location.href)
+    .forEach(h => {
+      const bodyText = document.body.innerHTML;
+      if (bodyText.includes(h.text)) {
+        document.body.innerHTML = bodyText.replace(
+          h.text,
+          `<mark style="background:yellow">${h.text}</mark>`
+        );
+      }
+    });
+}
+restoreHighlights();
